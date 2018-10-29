@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="QAPROSOFT" verbose="1" parallel="false">
+  <test name="Gmail Account">
+    <parameter name="user" value="matiqaprosoft"></parameter>
+    <parameter name="password" value="!qaprosoft1234"></parameter>
+    <parameter name="url" value="http://www.gmail.com"></parameter>
+    <classes>
+      <class name="AutomatedScripts.GmailTest">
+        <methods>
+          <include name="logToGmail"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>
+
