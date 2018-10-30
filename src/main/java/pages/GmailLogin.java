@@ -16,17 +16,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class GmailLogin extends PageObject{
 
-  @FindBy(id = locators.username)
+  @FindBy(id = locators.username_id)
   public  WebElement userId;
 
-  @FindBy(name =locators.password)
+  @FindBy(name =locators.password_id)
   public  WebElement passId;
 
 
-  @FindBy(xpath =locators.passErrorMessage)
+  @FindBy(xpath =locators.passErrorMessage_xpath)
   public  WebElement errorPass;
 
-  @FindBy(xpath = locators.userErrorMessage)
+  @FindBy(xpath = locators.userErrorMessage_xpath)
   public  WebElement errorUser;
 
   public GmailLogin(WebDriver driver) {

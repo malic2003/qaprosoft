@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="QAPROSOFT" verbose="1" parallel="false">
+  <test name="Gmail Account">
+    <parameter name="item" value="ps4"></parameter>
+    <parameter name="url" value="http://www.ebay.com"></parameter>
+    <classes>
+      <class name="AutomatedScripts.EbayTest">
+        <methods>
+          <include name="ebayTest"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>
+

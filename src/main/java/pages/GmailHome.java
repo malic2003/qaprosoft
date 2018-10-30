@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
  */
 public class GmailHome extends PageObject {
 
-  @FindBy(xpath = locators.logo)
+  @FindBy(xpath = locators.logo_xpath)
   public WebElement logo;
 
   public GmailHome(WebDriver driver){
