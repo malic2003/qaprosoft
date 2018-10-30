@@ -18,8 +18,38 @@ public class GmailTest extends BrowserConfig{
     Browsing browser = new Browsing(driver);
     browser.goTo(url);
     GmailLogin mail = new GmailLogin(driver);
-    Assert.assertTrue(GmailLogin.isLoaded());
+    Assert.assertTrue(mail.isLoaded());
     GmailHome homepage = mail.login(user,password);
-    Assert.assertTrue(GmailHome.isUserLogged());
+    Assert.assertTrue(homepage.isUserLogged());
+  }
+
+  @Test(testName = "wrongPassMessage")
+  @Parameters({"user", "url"})
+  public void wrongPassMessage(String user, String url) {
+    Browsing browser = new Browsing(driver);
+    browser.goTo(url);
+    GmailLogin mail = new GmailLogin(driver);
+    Assert.assertTrue(mail.isLoaded());
+    GmailHome homepage = mail.login(user,"error");
+    Assert.assertTrue(mail.isErrorPassMessageDisplayed());
+  }
+
+  @Test(testName = "invalidUserMessage")
+  @Parameters({"url"})
+  public void invalidUserMessage(String url) {
+    Browsing browser = new Browsing(driver);
+    browser.goTo(url);
+    GmailLogin mail = new GmailLogin(driver);
+    Assert.assertTrue(mail.isLoaded());
+    GmailHome homepage = mail.login("invalid","error");
+    Assert.assertTrue(mail.isErrorUserMessageDisplayed());
+  }
+
+  @Test(testName = "wrongSite")
+  public void wrongSite() {
+    Browsing browser = new Browsing(driver);
+    browser.goTo("http://www.gmai.com");
+    GmailLogin mail = new GmailLogin(driver);
+    Assert.assertFalse(mail.isLoaded());
   }
 }
